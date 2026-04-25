@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ar" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caprese Sandwich</title>
+    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg bg-white py-3">
+      <div class="container d-block">
+        <div class="d-flex justify-content-between">
+          <div class="navbar-brand-group d-flex gap-2 align-items-center">
+            <div
+              class="nav-logo text-white d-flex justify-content-center align-items-center"
+            >
+              <i class="fas fa-utensils"></i>
+            </div>
+            <div>
+              <div class="nav-title fw-bold text-black fs-4">
+                What's For Dinner
+              </div>
+              <div class="nav-sub">Your daily meal inspiration</div>
+            </div>
+          </div>
+          <div class="navbar-icons">
+            <button class="nav-icon-btn">
+              <i class="fas fa-bookmark"></i>
+            </button>
+            <button class="nav-icon-btn">
+              <i class="fas fa-clock-rotate-left"></i>
+            </button>
+            <button class="nav-icon-btn">
+              <i class="fas fa-gear"></i>
+            </button>
+            <div class="nav-avatar">
+              <img src="./Images/imageye___-_imgi_1_avatar-4.jpg" alt="User" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-section py-5 min-vh-100">
+      <div class="container px-5" id="demo">
+        <div class="row bg-white g-3">
+          <div class="col-lg-5 col-12 position-relative left">
+            <div class="image-holder">
+              <img
+                src="./Images/imageye___-_imgi_2_photo-1509722747041-616f39b57569.jpg"
+                alt="Caprese Sandwich"
+                class="img-fluid"
+              />
+            </div>
+
+            <div class="hero-img-overlay">
+              <span class="stars-badge bg-white">
+                <span class="star"
+                  ><i class="fas fa-star text-warning"></i
+                ></span>
+                4.5
+                <span
+                  class="text-muted fw-normal ms-1"
+                  style="font-size: 0.8rem"
+                  >(189 reviews)</span
+                >
+              </span>
+            </div>
+
+            <div
+              class="timing-bar position-absolute d-flex bg-white justify-content-around"
+            >
+              <div class="timing-item one">
+                <p class="icon"><i class="fas fa-clock"></i></p>
+                <p class="label">Prep Time</p>
+                <p class="value">10 min</p>
+              </div>
+              <div class="timing-item two">
+                <p class="icon"><i class="fas fa-fire-burner"></i></p>
+                <p class="label">Cook Time</p>
+                <p class="value">5 min</p>
+              </div>
+              <div class="timing-item three">
+                <p class="icon"><i class="fas fa-users"></i></p>
+                <p class="label">Servings</p>
+                <p class="value">2 people</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-12 right">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <div>
+                <div class="d-flex gap-2 mb-3">
+                  <span class="badge easy">Easy</span>
+                  <span class="badge italian">Italian</span>
+                </div>
+                <h1 class="recipe-title fw-bold">Caprese Sandwich</h1>
+                <p class="recipe-subtitle">
+                  Fresh Italian sandwich with mozzarella, tomato, and basil
+                </p>
+              </div>
+              <div class="d-flex gap-2 ms-3 mt-1">
+                <button class="action-btn" title="Save">
+                  <i class="fas fa-bookmark"></i>
+                </button>
+                <button class="action-btn" title="Share">
+                  <i class="fa fa-share-nodes"></i>
+                </button>
+              </div>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+              <ul
+                class="nav nav-pills mb-3 recipe-tabs mb-4"
+                id="pills-tab"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="pills-home-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-home"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                  >
+                    <i class="fas fa-list-check"></i> Ingredients
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-profile-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-profile"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-profile"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-book-open"></i>Instructions
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-contact"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-contact"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-chart-pie"></i>Nutrition
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-disabled-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-disabled"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-disabled"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-lightbulb"></i>Chef's Tips
+                  </button>
+                </li>
+              </ul>
+              <div
+                class="tab-pane fade show active"
+                id="pills-home"
+                role="tabpanel"
+                aria-labelledby="pills-home-tab"
+                tabindex="0"
+              >
+                <div class="ingredients-card d-flex flex-column gap-3">
+                  <div class="ingredient-item">
+                    <span class="ing-num">1</span
+                    ><span class="ing-text">1 ciabatta bread</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">2</span
+                    ><span class="ing-text">200g fresh mozzarella, sliced</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">3</span
+                    ><span class="ing-text">2 large tomatoes, sliced</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">4</span
+                    ><span class="ing-text">Fresh basil leaves</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">5</span
+                    ><span class="ing-text">3 tablespoons pesto</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">6</span
+                    ><span class="ing-text">2 tablespoons balsamic glaze</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">7</span
+                    ><span class="ing-text">Olive oil</span>
+                  </div>
+                  <div class="ingredient-item">
+                    <span class="ing-num">8</span
+                    ><span class="ing-text">Salt and pepper</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade Instructions"
+                id="pills-profile"
+                role="tabpanel"
+                aria-labelledby="pills-profile-tab"
+                tabindex="0"
+              >
+                <div class="d-flex flex-column gap-4">
+                  <div class="step-row">
+                    <span class="step-badge">1</span
+                    ><span class="step-text"
+                      >Slice ciabatta bread in half horizontally.</span
+                    >
+                  </div>
+                  <div class="step-row">
+                    <span class="step-badge">2</span
+                    ><span class="step-text"
+                      >Toast bread lightly until just crispy.</span
+                    >
+                  </div>
+                  <div class="step-row">
+                    <span class="step-badge">3</span
+                    ><span class="step-text"
+                      >Spread pesto on both sides of bread.</span
+                    >
+                  </div>
+                  <div class="step-row">
+                    <span class="step-badge">4</span
+                    ><span class="step-text"
+                      >Layer mozzarella slices, tomato slices, and fresh basil
+                      leaves.</span
+                    >
+                  </div>
+                  <div class="step-row">
+                    <span class="step-badge">5</span
+                    ><span class="step-text"
+                      >Drizzle with olive oil and balsamic glaze. Season with
+                      salt and pepper.</span
+                    >
+                  </div>
+                  <div class="step-row">
+                    <span class="step-badge">6</span
+                    ><span class="step-text"
+                      >Close sandwich, cut in half, and serve immediately.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-contact"
+                role="tabpanel"
+                aria-labelledby="pills-contact-tab"
+                tabindex="0"
+              >
+                <div class="nutrition-grid row g-3">
+                  <div class="col-lg-6 col-12 d-flex flex-column gap-3">
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-orange">
+                        <i class="fas fa-fire"></i>
+                      </div>
+                      <span class="nutrition-name">Calories</span>
+                      <span class="nutrition-val">480 kcal</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-blue">
+                        <i class="fas fa-dumbbell"></i>
+                      </div>
+                      <span class="nutrition-name">Protein</span>
+                      <span class="nutrition-val">22g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-yellow">
+                        <i class="fas fa-wheat-awn"></i>
+                      </div>
+                      <span class="nutrition-name">Carbohydrates</span>
+                      <span class="nutrition-val">48g</span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-12 d-flex flex-column gap-3">
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-red">
+                        <i class="fas fa-droplet"></i>
+                      </div>
+                      <span class="nutrition-name">Fat</span>
+                      <span class="nutrition-val">22g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-green">
+                        <i class="fas fa-seedling"></i>
+                      </div>
+                      <span class="nutrition-name">Fiber</span>
+                      <span class="nutrition-val">3g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <div class="nutrition-icon-box nic-pink">
+                        <i class="fas fa-cube"></i>
+                      </div>
+                      <span class="nutrition-name">Sodium</span>
+                      <span class="nutrition-val">680mg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-disabled"
+                role="tabpanel"
+                aria-labelledby="pills-disabled-tab"
+                tabindex="0"
+              >
+                <div class="tip-row">
+                  <span class="tip-check"
+                    ><i class="fas fa-circle-check"></i></span
+                  ><span class="tip-text"
+                    >Use ripe, in-season tomatoes for best flavor</span
+                  >
+                </div>
+                <div class="tip-row">
+                  <span class="tip-check"
+                    ><i class="fas fa-circle-check"></i></span
+                  ><span class="tip-text"
+                    >Buffalo mozzarella is traditional but harder to slice</span
+                  >
+                </div>
+                <div class="tip-row">
+                  <span class="tip-check"
+                    ><i class="fas fa-circle-check"></i></span
+                  ><span class="tip-text"
+                    >Toast bread lightly - not too crispy</span
+                  >
+                </div>
+                <div class="tip-row">
+                  <span class="tip-check"
+                    ><i class="fas fa-circle-check"></i></span
+                  ><span class="tip-text"
+                    >Add prosciutto or salami for a heartier sandwich</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="grayline"></div>
+            <div class="mt-4 pt-2">
+              <button class="btn-try" onclick="changeRecipes()">
+                ↻ Try Another Recipe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Content -->
+      </div>
+    </div>
+
+    <script src="./JS/bootstrap.bundle.js"></script>
+    <script src="./JS/main.js"></script>
+  </body>
+</html>
+
+<!-- CTA -->
