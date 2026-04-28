@@ -207,9 +207,71 @@ var recipes = [
   },
 ];
 
+var lastRandom = -1;
 function changeRecipes() {
-  var randomRecipe = Math.floor(Math.random() * recipes.length);
+  var randomRecipe;
+  while (true) {
+    randomRecipe = Math.floor(Math.random() * recipes.length);
+
+    if (randomRecipe != lastRandom) {
+      break;
+    }
+  }
+
+  lastRandom = randomRecipe;
   var currentRecipe = recipes[randomRecipe];
+
+  var IngredientsHTML = "";
+  for (let i = 0; i < currentRecipe.Ingredients.length; i++) {
+    IngredientsHTML += `
+                 <div class="ingredient-item">
+                    <span class="ing-num">${i + 1}</span
+                    ><span class="ing-text">${currentRecipe.Ingredients[i]}</span>
+                  </div>
+    `;
+  }
+  var InstructionsHTML = "";
+  for (let i = 0; i < currentRecipe.Instructions.length; i++) {
+    InstructionsHTML += `
+                 <div class="step-row">
+                    <span class="step-badge">${i + 1}</span
+                    ><span class="step-text"
+                      >${currentRecipe.Instructions[i]}</span
+                    >
+                  </div>`;
+  }
+  var ChefsTipsHTML = "";
+  for (let i = 0; i < currentRecipe.ChefsTips.length; i++) {
+    ChefsTipsHTML += `
+    <div class="tip-row">
+                  <span class="tip-check"
+                    ><i class="fas fa-circle-check"></i></span
+                  ><span class="tip-text"
+                    >${currentRecipe.ChefsTips[i]}</span
+                  >
+                </div>
+    `;
+  }
+
+  var alertMessage = "";
+  if (recipes[randomRecipe].CookTime + recipes[randomRecipe].PrepTime >= 45) {
+    alertMessage += `
+    <div
+              class="alert-message rounded-2 d-flex align-items-center gap-2 my-3"
+            >
+              <div class="icon">
+                <i class="fas fa-triangle-exclamation"></i>
+              </div>
+              <div class="content">
+                <p>Extended Preparation Time</p>
+                <p>
+                  This recipe requires more than 45 minutes to prepare. Plan
+                  accordingly!
+                </p>
+              </div>
+            </div>
+    `;
+  }
   document.getElementById("demo").innerHTML = `
       <div class="row bg-white g-3">
           <div class="col-lg-5 col-12 position-relative left">
@@ -259,12 +321,12 @@ function changeRecipes() {
             <div class="d-flex align-items-start justify-content-between mb-3">
               <div>
                 <div class="d-flex gap-2 mb-3">
-                  <span class="badge easy">Easy</span>
-                  <span class="badge italian">Italian</span>
+                  <span class="badge easy">${currentRecipe.recipeDifficulty}</span>
+                  <span class="badge italian">${currentRecipe.recipeCountry}</span>
                 </div>
-                <h1 class="recipe-title fw-bold">Caprese Sandwich</h1>
+                <h1 class="recipe-title fw-bold">${currentRecipe.name}</h1>
                 <p class="recipe-subtitle">
-                  Fresh Italian sandwich with mozzarella, tomato, and basil
+                  ${currentRecipe.description}
                 </p>
               </div>
               <div class="d-flex gap-2 ms-3 mt-1">
@@ -276,6 +338,8 @@ function changeRecipes() {
                 </button>
               </div>
             </div>
+
+            ${alertMessage}
             <div class="tab-content" id="pills-tabContent">
               <ul
                 class="nav nav-pills mb-3 recipe-tabs mb-4"
@@ -347,38 +411,7 @@ function changeRecipes() {
                 tabindex="0"
               >
                 <div class="ingredients-card d-flex flex-column gap-3">
-                  <div class="ingredient-item">
-                    <span class="ing-num">1</span
-                    ><span class="ing-text">1 ciabatta bread</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">2</span
-                    ><span class="ing-text">200g fresh mozzarella, sliced</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">3</span
-                    ><span class="ing-text">2 large tomatoes, sliced</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">4</span
-                    ><span class="ing-text">Fresh basil leaves</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">5</span
-                    ><span class="ing-text">3 tablespoons pesto</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">6</span
-                    ><span class="ing-text">2 tablespoons balsamic glaze</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">7</span
-                    ><span class="ing-text">Olive oil</span>
-                  </div>
-                  <div class="ingredient-item">
-                    <span class="ing-num">8</span
-                    ><span class="ing-text">Salt and pepper</span>
-                  </div>
+                  ${IngredientsHTML}
                 </div>
               </div>
               <div
@@ -389,44 +422,7 @@ function changeRecipes() {
                 tabindex="0"
               >
                 <div class="d-flex flex-column gap-4">
-                  <div class="step-row">
-                    <span class="step-badge">1</span
-                    ><span class="step-text"
-                      >Slice ciabatta bread in half horizontally.</span
-                    >
-                  </div>
-                  <div class="step-row">
-                    <span class="step-badge">2</span
-                    ><span class="step-text"
-                      >Toast bread lightly until just crispy.</span
-                    >
-                  </div>
-                  <div class="step-row">
-                    <span class="step-badge">3</span
-                    ><span class="step-text"
-                      >Spread pesto on both sides of bread.</span
-                    >
-                  </div>
-                  <div class="step-row">
-                    <span class="step-badge">4</span
-                    ><span class="step-text"
-                      >Layer mozzarella slices, tomato slices, and fresh basil
-                      leaves.</span
-                    >
-                  </div>
-                  <div class="step-row">
-                    <span class="step-badge">5</span
-                    ><span class="step-text"
-                      >Drizzle with olive oil and balsamic glaze. Season with
-                      salt and pepper.</span
-                    >
-                  </div>
-                  <div class="step-row">
-                    <span class="step-badge">6</span
-                    ><span class="step-text"
-                      >Close sandwich, cut in half, and serve immediately.</span
-                    >
-                  </div>
+                  ${InstructionsHTML}
                 </div>
               </div>
               <div
@@ -443,21 +439,21 @@ function changeRecipes() {
                         <i class="fas fa-fire"></i>
                       </div>
                       <span class="nutrition-name">Calories</span>
-                      <span class="nutrition-val">480 kcal</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Calories} kcal</span>
                     </div>
                     <div class="nutrition-row">
                       <div class="nutrition-icon-box nic-blue">
                         <i class="fas fa-dumbbell"></i>
                       </div>
                       <span class="nutrition-name">Protein</span>
-                      <span class="nutrition-val">22g</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Protein}g</span>
                     </div>
                     <div class="nutrition-row">
                       <div class="nutrition-icon-box nic-yellow">
                         <i class="fas fa-wheat-awn"></i>
                       </div>
                       <span class="nutrition-name">Carbohydrates</span>
-                      <span class="nutrition-val">48g</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Carbohydrates}g</span>
                     </div>
                   </div>
                   <div class="col-lg-6 col-12 d-flex flex-column gap-3">
@@ -466,21 +462,21 @@ function changeRecipes() {
                         <i class="fas fa-droplet"></i>
                       </div>
                       <span class="nutrition-name">Fat</span>
-                      <span class="nutrition-val">22g</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Fat}g</span>
                     </div>
                     <div class="nutrition-row">
                       <div class="nutrition-icon-box nic-green">
                         <i class="fas fa-seedling"></i>
                       </div>
                       <span class="nutrition-name">Fiber</span>
-                      <span class="nutrition-val">3g</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Fiber}g</span>
                     </div>
                     <div class="nutrition-row">
                       <div class="nutrition-icon-box nic-pink">
                         <i class="fas fa-cube"></i>
                       </div>
                       <span class="nutrition-name">Sodium</span>
-                      <span class="nutrition-val">680mg</span>
+                      <span class="nutrition-val">${currentRecipe.Nutrition.Sodium}mg</span>
                     </div>
                   </div>
                 </div>
@@ -492,34 +488,7 @@ function changeRecipes() {
                 aria-labelledby="pills-disabled-tab"
                 tabindex="0"
               >
-                <div class="tip-row">
-                  <span class="tip-check"
-                    ><i class="fas fa-circle-check"></i></span
-                  ><span class="tip-text"
-                    >Use ripe, in-season tomatoes for best flavor</span
-                  >
-                </div>
-                <div class="tip-row">
-                  <span class="tip-check"
-                    ><i class="fas fa-circle-check"></i></span
-                  ><span class="tip-text"
-                    >Buffalo mozzarella is traditional but harder to slice</span
-                  >
-                </div>
-                <div class="tip-row">
-                  <span class="tip-check"
-                    ><i class="fas fa-circle-check"></i></span
-                  ><span class="tip-text"
-                    >Toast bread lightly - not too crispy</span
-                  >
-                </div>
-                <div class="tip-row">
-                  <span class="tip-check"
-                    ><i class="fas fa-circle-check"></i></span
-                  ><span class="tip-text"
-                    >Add prosciutto or salami for a heartier sandwich</span
-                  >
-                </div>
+                ${ChefsTipsHTML}
               </div>
             </div>
             <div class="grayline"></div>
