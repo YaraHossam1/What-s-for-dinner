@@ -183,7 +183,7 @@ var recipes = [
     PrepTime: 30,
     CookTime: 50,
     Servings: 6,
-    image: "../Images/photo-1612874742237-6526221588e3.jpg",
+    image: "./Images/photo-1612874742237-6526221588e3.jpg",
     recipeDifficulty: "hard",
     recipeCountry: "French",
     name: "Chocolate Cake",
