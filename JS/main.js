@@ -274,7 +274,7 @@ function changeRecipes() {
   }
   document.getElementById("demo").innerHTML = `
       <div class="row bg-white g-3">
-          <div class="col-lg-5 col-12 position-relative left">
+          <div class="col-lg-5 col-12 position-relative left mt-0">
             <div class="image-holder">
               <img
                 src=${currentRecipe.image}
@@ -317,7 +317,7 @@ function changeRecipes() {
               </div>
             </div>
           </div>
-          <div class="col-lg-7 col-12 right">
+          <div class="col-lg-7 col-12 right mt-0">
             <div class="d-flex align-items-start justify-content-between mb-3">
               <div>
                 <div class="d-flex gap-2 mb-3">
